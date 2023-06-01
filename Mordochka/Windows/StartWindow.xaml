@@ -1,0 +1,68 @@
+﻿<Window x:Class="Mordochka.StartWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Mordochka"
+        mc:Ignorable="d"
+        Title="StartWindow" MinHeight="600" MinWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="111*"/>
+        </Grid.RowDefinitions>
+        
+        <WrapPanel>
+            <TextBox x:Name="txbSearch"
+                 Width="100"
+                 Height="100"
+                 TextChanged="txbSearch_TextChanged"/>
+
+            <Button x:Name="btnAdd"
+                Content="Add"
+                Width="100"
+                 Height="100"
+                Click="btnAdd_Click"/>
+
+            <ComboBox x:Name="cmb"
+                  Width="100"
+                 Height="100"
+                  SelectionChanged="cmb_SelectionChanged"/>
+            <TextBlock x:Name="count"
+                       Width="100"
+                 Height="100"/>
+            <ComboBox x:Name="cmbPages"
+                  Width="100"
+                 Height="100"
+                      SelectionChanged="cmbPages_SelectionChanged"/>
+
+            <CheckBox Content="BirthDay"
+                      x:Name="check"
+                      />
+
+        </WrapPanel>
+
+        <ListView HorizontalAlignment="Right"
+                  x:Name="LV"
+                  d:ItemsSource="{d:SampleData ItemCount=5}" 
+                  Grid.Row="1">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Id" Width="50" DisplayMemberBinding="{Binding ID}"/>
+                    <GridViewColumn Header="Gender" Width="70" DisplayMemberBinding="{Binding Gender.Name}"/>
+                    <GridViewColumn Header="FirstName" Width="150" DisplayMemberBinding="{Binding FirstName}"/>
+                    <GridViewColumn Header="LastName" Width="150" DisplayMemberBinding="{Binding LastName}"/>
+                    <GridViewColumn Header="Patronymic" Width="150" DisplayMemberBinding="{Binding Patronymic}"/>
+                    <GridViewColumn Header="BirthDate" Width="70" DisplayMemberBinding="{Binding Birthday}"/>
+                    <GridViewColumn Header="Phone" Width="100" DisplayMemberBinding="{Binding Phone}"/>
+                    <GridViewColumn Header="Email" Width="150" DisplayMemberBinding="{Binding Email}"/>
+                    <GridViewColumn Header="RegistrationDate" Width="100" DisplayMemberBinding="{Binding RegistrationDate}"/>
+                    <GridViewColumn Header="VisitQuantity" Width="50"/>
+                    <GridViewColumn Header="Tags" Width="150" DisplayMemberBinding="{Binding }"/>
+                </GridView>
+            </ListView.View>
+
+        </ListView>
+
+    </Grid>
+</Window>
